@@ -1,0 +1,97 @@
+---
+// Hero.astro — Limpio y directo
+import NodeCanvas from './NodeCanvas';
+---
+
+<section
+  id="hero"
+  class="relative min-h-screen flex items-center justify-center overflow-hidden"
+>
+  <!-- Grid overlay -->
+  <div class="absolute inset-0 grid-overlay opacity-40 pointer-events-none"></div>
+  <div class="absolute inset-0 bg-hero-gradient pointer-events-none"></div>
+
+  <!-- Canvas background -->
+  <div class="absolute inset-0">
+    <NodeCanvas client:load />
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-4xl mx-auto px-6 pt-28 pb-20 flex flex-col lg:flex-row items-center gap-16">
+
+    <!-- Avatar -->
+    <div class="relative flex-shrink-0">
+      <div class="relative w-52 h-52 sm:w-60 sm:h-60">
+        <div class="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-neon-green"></div>
+        <div class="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-neon-green"></div>
+        <div class="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-neon-green"></div>
+        <div class="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-neon-green"></div>
+        <div class="absolute inset-3 rounded-lg overflow-hidden border border-dark-border">
+          <img
+            src="/avatar.jpg"
+            alt="Joakin Mac-Auliffe"
+            class="w-full h-full object-cover"
+            style="filter: saturate(0.9) contrast(1.05);"
+          />
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent to-neon-green/10"></div>
+        </div>
+        <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2">
+          <span class="ping-dot w-2 h-2"></span>
+          <span class="terminal-text text-xs opacity-60">RF:ACTIVE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text -->
+    <div class="flex-1 text-center lg:text-left">
+      <div class="flex flex-wrap gap-2 mb-5 justify-center lg:justify-start">
+        <span class="badge-neon">UDP · 2024</span>
+        <span class="badge-orange">Santiago, Chile</span>
+      </div>
+
+      <h1 class="text-5xl sm:text-6xl font-bold text-text-primary mb-2 leading-tight">
+        Joakin
+        <span class="block text-neon">Mac-Auliffe</span>
+      </h1>
+
+      <p class="font-mono text-electric-blue text-sm mb-5 tracking-wide">
+        &gt; Ingeniero Civil en Informática y Telecomunicaciones
+      </p>
+
+      <p class="text-text-muted text-base max-w-md mx-auto lg:mx-0 mb-8 leading-relaxed">
+        Diseño infraestructura crítica que conecta lo desconectado: redes mesh autónomas, 
+        sistemas IoT embebidos y transmisión digital.
+      </p>
+
+      <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+        <a
+          href="#back2home"
+          class="flex items-center gap-2 px-5 py-2.5 bg-neon-green text-dark-bg font-semibold rounded-lg hover:bg-neon-green/90 transition-all duration-300 text-sm"
+        >
+          Ver Proyecto Estrella
+        </a>
+        <a
+          href="https://linkedin.com/in/joakinmacauliffe"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 px-5 py-2.5 border border-electric-blue/40 text-electric-blue rounded-lg hover:bg-electric-blue/10 transition-all duration-300 text-sm"
+        >
+          LinkedIn
+        </a>
+        <a
+          href="https://github.com/JoakinMacAuliffe"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 px-5 py-2.5 border border-dark-border text-text-muted rounded-lg hover:border-neon-green/40 hover:text-neon-green transition-all duration-300 text-sm"
+        >
+          GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
+    <div class="w-px h-10 bg-gradient-to-b from-neon-green to-transparent animate-bounce"></div>
+  </div>
+</section>

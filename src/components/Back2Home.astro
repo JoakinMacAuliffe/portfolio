@@ -1,0 +1,58 @@
+---
+// Back2Home.astro — Caso de estudio simplificado
+import Back2HomeTabs from './Back2HomeTabs';
+---
+
+<section id="back2home" class="relative py-20 overflow-hidden">
+  <div class="absolute inset-0 grid-overlay opacity-20 pointer-events-none"></div>
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-green/30 to-transparent"></div>
+
+  <div class="max-w-4xl mx-auto px-6">
+
+    <!-- Header -->
+    <div class="mb-8">
+      <span class="section-label">// proyecto_estrella.iot</span>
+
+      <!-- Winner badge inline -->
+      <div class="flex items-center gap-3 mt-4 mb-5">
+        <span class="text-lg">🏆</span>
+        <span class="text-signal-orange font-mono text-xs font-semibold">
+          Ganador Feria TICs · UDP 2024
+        </span>
+      </div>
+
+      <h2 class="text-4xl sm:text-5xl font-bold mb-2">
+        <span class="text-neon font-mono">back2home</span>
+      </h2>
+      <p class="text-text-muted text-base max-w-xl">
+        Red IoT Mesh autónoma para prevención de extravíos en parques nacionales, sin cobertura celular.
+      </p>
+    </div>
+
+    <div class="divider-glow mb-8"></div>
+
+    <!-- Stats: 3 numbers, limpio -->
+    <div class="grid grid-cols-3 gap-4 mb-10">
+      {[
+        { stat: '>170', label: 'rescates/año en Chile', color: 'text-red-400' },
+        { stat: '$12M', label: 'CLP por operativo SAR', color: 'text-red-400' },
+        { stat: '<50m', label: 'precisión de búsqueda', color: 'text-neon-green' },
+      ].map(({ stat, label, color }) => (
+        <div class="text-center p-4 rounded-xl bg-dark-card border border-dark-border">
+          <div class={`font-mono text-2xl font-black mb-1 ${color}`}>{stat}</div>
+          <div class="text-text-muted text-xs leading-tight">{label}</div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Technical tabs -->
+    <div class="card-glow p-6">
+      <div class="flex items-center gap-2 mb-1">
+        <div class="ping-dot w-2 h-2"></div>
+        <span class="font-mono text-electric-blue text-sm font-semibold">Arquitectura Técnica</span>
+      </div>
+      <Back2HomeTabs client:load />
+    </div>
+
+  </div>
+</section>

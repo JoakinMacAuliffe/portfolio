@@ -1,0 +1,29 @@
+---
+// Skills.astro — Stack limpio
+import SkillCards from './SkillCards';
+---
+
+<section id="stack" class="relative py-20 overflow-hidden">
+  <div class="absolute inset-0 grid-overlay opacity-20 pointer-events-none"></div>
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-signal-orange/30 to-transparent"></div>
+
+  <div class="max-w-4xl mx-auto px-6">
+
+    <!-- Header -->
+    <div class="mb-8">
+      <span class="section-label">// stack_tecnico.json</span>
+      <h2 class="text-4xl sm:text-5xl font-bold text-text-primary mt-4 mb-2">
+        Stack <span class="text-neon-orange">Técnico</span>
+      </h2>
+      <p class="text-text-muted text-sm">
+        RF & Wireless · Hardware embebido · Software & Cloud
+      </p>
+    </div>
+
+    <div class="divider-glow mb-10"></div>
+
+    <!-- Skill Cards -->
+    <SkillCards client:load />
+
+  </div>
+</section>
