@@ -1,6 +1,6 @@
 # Portfolio — Joakin Mac-Auliffe
 
-Portafolio web profesional de **Joakin Fernando Mac-Auliffe López**, Ingeniero Civil en Informática y Telecomunicaciones (UDP).
+Portafolio web profesional de **Joakin Mac-Auliffe**, estudiante de Ingeniería Civil en Informática y Telecomunicaciones (UDP).
 
 ## Tech Stack
 
