@@ -1,41 +1,60 @@
 ---
 // Experience.astro — Simplificado
-import ExperienceTimeline from './ExperienceTimeline';
+import ExperienceTimeline from "./ExperienceTimeline";
 ---
 
 <section id="experiencia" class="relative py-20 overflow-hidden">
   <div class="absolute inset-0 bg-dark-surface/40 pointer-events-none"></div>
-  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-electric-blue/30 to-transparent"></div>
+  <div
+    class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-electric-blue/30 to-transparent"
+  >
+  </div>
 
-  <div class="max-w-4xl mx-auto px-6">
-
+  <div class="relative z-10 max-w-4xl mx-auto px-6">
     <!-- Header -->
     <div class="mb-8">
       <span class="section-label">// experiencia.log</span>
 
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-4">
+      <div
+        class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-4"
+      >
         <div>
           <h2 class="text-4xl sm:text-5xl font-bold text-text-primary">
             Experiencia
           </h2>
-          <p class="text-text-muted text-sm mt-1">Práctica Profesional I · 2024</p>
+          <p class="text-text-muted text-sm mt-1">
+            Práctica Profesional I · Enero - Marzo 2026
+          </p>
         </div>
 
         <!-- Company inline -->
-        <div class="flex items-center gap-3 px-4 py-2.5 rounded-xl border border-electric-blue/20 bg-electric-blue/5">
+        <div
+          class="flex items-center gap-3 px-4 py-2.5 rounded-xl border border-electric-blue/20 bg-electric-blue/5"
+        >
           <span class="text-xl">📺</span>
           <div>
             <div class="font-semibold text-text-primary text-sm">Sercom</div>
-            <div class="text-electric-blue font-mono text-xs">Transmisión Digital · ISDB-Tb</div>
+            <div class="text-electric-blue font-mono text-xs">
+              Transmisión Digital · ISDB-Tb
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="divider-glow mb-8"></div>
+    <div class="divider-glow mb-6"></div>
+
+    <div class="mb-8 text-text-muted text-sm leading-relaxed max-w-3xl">
+      Durante mi práctica en <strong class="text-text-primary"
+        >Sercom S.A.</strong
+      > adquirí conocimientos prácticos fundamentales sobre sistemas de transmisión
+      digital en el estándar ISDB-Tb. Esta experiencia en terreno me permitió desarrollar
+      habilidades en la configuración y soporte de equipos, diseño de infraestructura
+      de red para accesos remotos y el diagnóstico avanzado de sistemas de transmisión
+      de alta potencia.
+    </div>
 
     <!-- Timeline accordion -->
     <ExperienceTimeline client:load />
-
   </div>
 </section>

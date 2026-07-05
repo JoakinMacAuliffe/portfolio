@@ -6,30 +6,30 @@ import { motion, AnimatePresence } from 'framer-motion';
 const experiences = [
   {
     id: 0,
-    title: 'Configuración y Diagnóstico en Terreno',
-    icon: '📻',
+    title: 'Configuración y Soporte de Equipos',
+    icon: '📡',
     color: '#00d4ff',
-    tags: ['ISDB-Tb', 'Diagnóstico RF', 'SNR/MER/BER'],
+    tags: ['ISDB-Tb', 'Moduladores RF', 'Soporte en Terreno'],
     description:
-      'Configuración y diagnóstico en terreno de equipos de transmisión de TV digital bajo estándar ISDB-Tb. Análisis de calidad de señal con analizadores de espectro.',
+      'Configuración y soporte de equipos de transmisión digital bajo el estándar ISDB-Tb, incluyendo análisis de calidad de señal mediante parámetros SNR, MER y BER.',
   },
   {
     id: 1,
-    title: 'Infraestructura de Red para Acceso Remoto',
+    title: 'Diseño de Infraestructura de Red',
     icon: '🔒',
     color: '#00ff88',
-    tags: ['VPN / VLAN', 'Firewall', 'SSH'],
+    tags: ['VPN / VLAN', 'Firewall', 'Acceso Remoto'],
     description:
-      'Diseño de red dedicada con VPNs, VLANs y firewall para acceso remoto seguro a equipos de transmisión distribuidos geográficamente.',
+      'Diseño e implementación de infraestructura de red dedicada para habilitar acceso remoto seguro a equipos de transmisión distribuidos geográficamente.',
   },
   {
     id: 2,
-    title: 'Mantenimiento de Sistemas de Alta Potencia',
+    title: 'Mantención y Diagnóstico en Terreno',
     icon: '⚡',
     color: '#ff6b00',
-    tags: ['Amplificadores RF', 'Guías de onda', 'VSWR'],
+    tags: ['Alta Potencia', 'Diagnóstico RF', 'Mantenimiento'],
     description:
-      'Mantenimiento preventivo y correctivo de amplificadores de potencia, sistemas de enfriamiento y líneas de transmisión en torres de radiodifusión.',
+      'Mantención preventiva y correctiva de sistemas de transmisión de alta potencia en terreno. Diagnóstico de amplificadores, líneas de transmisión y guías de onda.',
   },
 ];
 
