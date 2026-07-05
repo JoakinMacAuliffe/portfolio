@@ -1,0 +1,36 @@
+---
+// Resume.astro — Sección para visualizar el CV embebido
+---
+
+<section id="cv" class="py-24 bg-dark-bg relative border-t border-dark-border overflow-hidden">
+  <!-- Grid overlay -->
+  <div class="absolute inset-0 grid-overlay opacity-20 pointer-events-none"></div>
+  
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="flex items-center gap-4 mb-12" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-text-primary">
+        Curriculum <span class="text-signal-orange">Vitae</span>
+      </h2>
+      <div class="h-px bg-dark-border flex-1"></div>
+      <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" class="hidden sm:flex items-center gap-2 px-4 py-2 bg-signal-orange/10 border border-signal-orange/40 text-signal-orange rounded-lg hover:bg-signal-orange/20 transition-all duration-300 text-sm font-mono">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+        Descargar PDF
+      </a>
+    </div>
+    
+    <div class="w-full h-[80vh] border border-dark-border rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow duration-300 relative bg-dark-surface" data-aos="fade-up" data-aos-delay="100">
+      <iframe src="/cv.pdf" class="w-full h-full border-none z-10 relative" title="Curriculum Vitae de Joakin Mac-Auliffe"></iframe>
+      
+      <!-- Fallback en caso de que el iframe tarde o el navegador no soporte PDFs inline -->
+      <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-0">
+        <div class="w-12 h-12 rounded-full bg-dark-border flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+        </div>
+        <p class="text-text-muted mb-4 font-mono text-sm max-w-md">Si no puedes visualizar el documento aquí, puedes descargarlo directamente.</p>
+        <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 bg-signal-orange text-dark-bg font-semibold rounded-lg hover:bg-signal-orange/90 transition-all duration-300">
+          Descargar CV
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

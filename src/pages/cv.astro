@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Joakin Mac-Auliffe | CV" description="Curriculum Vitae de Joakin Mac-Auliffe.">
+  <Navbar />
+  
+  <main class="min-h-screen pb-20 bg-dark-bg relative overflow-hidden" style="padding-top: 120px;">
+    <!-- Grid overlay for styling -->
+    <div class="absolute inset-0 grid-overlay opacity-20 pointer-events-none"></div>
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-signal-orange/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-4 relative z-10 flex flex-col items-center">
+      
+      <!-- Top Download Button -->
+      <div class="mb-8" data-aos="fade-down">
+        <a 
+          href="/cv.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="flex items-center gap-2 px-6 py-3 bg-signal-orange text-dark-bg font-bold rounded-lg shadow-[0_0_15px_rgba(255,107,0,0.4)] hover:shadow-[0_0_25px_rgba(255,107,0,0.6)] hover:bg-signal-orange/90 transition-all duration-300"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+          </svg>
+          Descargar CV
+        </a>
+      </div>
+
+      <!-- PDF Viewer container -->
+      <div 
+        class="w-full max-w-4xl bg-dark-surface border border-dark-border shadow-2xl rounded-xl overflow-hidden relative mb-12" 
+        style="height: 800px; min-height: 70vh;"
+        data-aos="fade-up"
+      >
+        <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-0">
+          <div class="w-12 h-12 rounded-full border-2 border-t-signal-orange border-r-signal-orange border-b-transparent border-l-transparent animate-spin mb-4"></div>
+          <p class="text-text-muted font-mono text-sm">Cargando documento...</p>
+        </div>
+
+        <iframe 
+          src="/cv.pdf" 
+          class="absolute inset-0 w-full h-full border-none z-10 bg-white" 
+          title="Curriculum Vitae"
+        ></iframe>
+      </div>
+
+      <!-- Bottom Download Button -->
+      <div data-aos="fade-up">
+        <a 
+          href="/cv.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="flex items-center gap-2 px-6 py-3 bg-signal-orange text-dark-bg font-bold rounded-lg shadow-[0_0_15px_rgba(255,107,0,0.4)] hover:shadow-[0_0_25px_rgba(255,107,0,0.6)] hover:bg-signal-orange/90 transition-all duration-300"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+          </svg>
+          Descargar CV
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
