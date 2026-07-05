@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 export interface Props {
   title?: string;
@@ -7,8 +7,8 @@ export interface Props {
 }
 
 const {
-  title = 'Joakin Mac-Auliffe | Ingeniero Civil en Informática y Telecomunicaciones',
-  description = 'Portafolio profesional de Joakin Fernando Mac-Auliffe López, Ingeniero Civil en Informática y Telecomunicaciones UDP. Especialista en redes inalámbricas, IoT, LoRa Mesh, sistemas embebidos y transmisión digital.',
+  title = "Joakin Mac-Auliffe | Estudiante de Ingeniería Civil en Informática y Telecomunicaciones",
+  description = "Portafolio profesional de Joakin Fernando Mac-Auliffe López, estudiante de Ingeniería Civil en Informática y Telecomunicaciones UDP. Especialista en redes inalámbricas, IoT, LoRa Mesh, sistemas embebidos y transmisión digital.",
 } = Astro.props;
 ---
 
@@ -19,7 +19,10 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="author" content="Joakin Fernando Mac-Auliffe López" />
-    <meta name="keywords" content="telecomunicaciones, IoT, LoRa, ESP32, redes inalámbricas, ingeniero, UDP, Chile, back2home" />
+    <meta
+      name="keywords"
+      content="telecomunicaciones, IoT, LoRa, ESP32, redes inalámbricas, ingeniero, UDP, Chile, back2home"
+    />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
