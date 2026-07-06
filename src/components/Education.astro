@@ -1,5 +1,10 @@
 ---
 // Education.astro — Educación y Logros Académicos
+export interface Props {
+  lang?: "es" | "en";
+}
+const { lang = "es" } = Astro.props;
+const isEn = lang === "en";
 ---
 
 <section id="educacion" class="relative py-20 overflow-hidden">
@@ -11,10 +16,10 @@
     <div class="mb-10">
       <span class="section-label">// academic_status.log</span>
       <h2 class="text-4xl sm:text-5xl font-bold text-text-primary mt-4 mb-2">
-        Educación y <span class="text-neon">Logros</span>
+        {isEn ? "Education &" : "Educación y"} <span class="text-neon">{isEn ? "Achievements" : "Logros"}</span>
       </h2>
       <p class="text-text-muted text-sm">
-        Formación académica base y certificaciones destacadas.
+        {isEn ? "Core academic background and key certifications." : "Formación académica base y certificaciones destacadas."}
       </p>
     </div>
 
@@ -27,19 +32,19 @@
           <div>
             <div class="flex items-center gap-3 mb-5">
               <div class="ping-dot w-2 h-2" style="background:#00ff88;"></div>
-              <span class="font-mono text-neon-green text-sm font-semibold tracking-wider">NODO PRINCIPAL</span>
+              <span class="font-mono text-neon-green text-sm font-semibold tracking-wider">{isEn ? "MAIN NODE" : "NODO PRINCIPAL"}</span>
             </div>
             
             <h3 class="text-2xl font-bold text-text-primary mb-1">Universidad Diego Portales</h3>
-            <div class="font-mono text-electric-blue text-sm mb-4">Ingeniería Civil en Informática y Telecomunicaciones</div>
-            <div class="text-text-muted text-xs font-mono mb-6">2024 — Presente</div>
+            <div class="font-mono text-electric-blue text-sm mb-4">{isEn ? "Computer Engineering and Telecommunications" : "Ingeniería Civil en Informática y Telecomunicaciones"}</div>
+            <div class="text-text-muted text-xs font-mono mb-6">{isEn ? "2024 — Present" : "2024 — Presente"}</div>
           </div>
 
           <!-- KPI Dashboard Style for GPA -->
           <div class="mt-auto bg-dark-bg/60 border border-dark-border p-4 rounded-xl flex items-center justify-between">
             <div>
-              <div class="text-[10px] text-text-muted font-mono uppercase tracking-wider mb-1">Rendimiento Académico</div>
-              <div class="text-xs text-text-primary">Promedio Actual (GPA)</div>
+              <div class="text-[10px] text-text-muted font-mono uppercase tracking-wider mb-1">{isEn ? "Academic Performance" : "Rendimiento Académico"}</div>
+              <div class="text-xs text-text-primary">{isEn ? "Current GPA (Chilean Scale)" : "Promedio Actual (GPA)"}</div>
             </div>
             <div class="flex items-end gap-2">
               <span class="text-3xl font-black text-neon-green font-mono leading-none">6.2</span>
@@ -62,7 +67,7 @@
           </div>
           <h4 class="font-bold text-text-primary text-sm mb-1">IEEEXtreme 19.0</h4>
           <p class="text-text-muted text-xs leading-relaxed">
-            Participante en la hackatón global de 24 horas. Resolución intensiva de problemas algorítmicos bajo presión extrema.
+            {isEn ? "Participant in the 24-hour global hackathon. Intensive algorithmic problem-solving under extreme pressure." : "Participante en la hackatón global de 24 horas. Resolución intensiva de problemas algorítmicos bajo presión extrema."}
           </p>
         </div>
 
@@ -74,9 +79,9 @@
             </div>
             <span class="text-[10px] text-electric-blue font-mono border border-electric-blue/30 px-2 py-0.5 rounded">USM</span>
           </div>
-          <h4 class="font-bold text-text-primary text-sm mb-1">OCILabs Intermedio</h4>
+          <h4 class="font-bold text-text-primary text-sm mb-1">{isEn ? "OCILabs Intermediate" : "OCILabs Intermedio"}</h4>
           <p class="text-text-muted text-xs leading-relaxed">
-            Programación avanzada en C++ y estructuras de datos complejas. Orientado a optimización y eficiencia.
+            {isEn ? "Advanced C++ programming and complex data structures. Oriented towards optimization and efficiency." : "Programación avanzada en C++ y estructuras de datos complejas. Orientado a optimización y eficiencia."}
           </p>
         </div>
 

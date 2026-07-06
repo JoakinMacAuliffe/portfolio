@@ -5,19 +5,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 type TabKey = 'topology' | 'hardware';
 
-const tabs: { key: TabKey; label: string; icon: string }[] = [
-  { key: 'topology', label: 'Topología de Red', icon: '📡' },
-  { key: 'hardware', label: 'Hardware & Edge', icon: '🔧' },
-];
-
-function TopologyTab() {
+function TopologyTab({ lang }: { lang: 'es' | 'en' }) {
+  const isEn = lang === 'en';
   const nodes = [
-    { id: 'senderista', label: 'Senderista', sublabel: 'ESP32 + GPS', color: '#00ff88', x: 8, y: 50 },
-    { id: 'rep1', label: 'Repetidor A', sublabel: 'LoRa Node', color: '#00d4ff', x: 30, y: 25 },
-    { id: 'rep2', label: 'Repetidor B', sublabel: 'LoRa Node', color: '#00d4ff', x: 30, y: 75 },
+    { id: 'senderista', label: isEn ? 'Hiker' : 'Senderista', sublabel: 'ESP32 + GPS', color: '#00ff88', x: 8, y: 50 },
+    { id: 'rep1', label: isEn ? 'Repeater A' : 'Repetidor A', sublabel: 'LoRa Node', color: '#00d4ff', x: 30, y: 25 },
+    { id: 'rep2', label: isEn ? 'Repeater B' : 'Repetidor B', sublabel: 'LoRa Node', color: '#00d4ff', x: 30, y: 75 },
     { id: 'gateway', label: 'Gateway', sublabel: 'LoRa/WiFi', color: '#ff6b00', x: 55, y: 50 },
-    { id: 'server', label: 'Servidor + API', sublabel: 'PostgreSQL/PostGIS', color: '#a78bfa', x: 78, y: 50 },
-    { id: 'web', label: 'Plataforma Web', sublabel: 'Visualización', color: '#f472b6', x: 97, y: 50 },
+    { id: 'server', label: isEn ? 'Server + API' : 'Servidor + API', sublabel: 'PostgreSQL/PostGIS', color: '#a78bfa', x: 78, y: 50 },
+    { id: 'web', label: isEn ? 'Web Platform' : 'Plataforma Web', sublabel: isEn ? 'Visualization' : 'Visualización', color: '#f472b6', x: 97, y: 50 },
   ];
 
   const links = [
@@ -34,7 +30,7 @@ function TopologyTab() {
   return (
     <div className="space-y-6">
       <p className="text-text-muted text-sm leading-relaxed font-mono">
-        <span className="text-neon-green">$</span> Arquitectura de red mesh autónoma — sin dependencia de red celular comercial
+        <span className="text-neon-green">$</span> {isEn ? 'Autonomous mesh network architecture — independent of commercial cellular networks' : 'Arquitectura de red mesh autónoma — sin dependencia de red celular comercial'}
       </p>
 
       {/* SVG Topology Diagram */}
@@ -106,8 +102,8 @@ function TopologyTab() {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         {[
           { proto: 'LoRa SX1276', layer: 'PHY Layer', detail: 'Sub-GHz, 20dBm, Spread. Factor 7-12', color: 'neon' },
-          { proto: 'Mesh Protocol', layer: 'NET Layer', detail: 'Enrutamiento dinámico multi-salto', color: 'blue' },
-          { proto: 'MQTT / REST', layer: 'APP Layer', detail: 'PostGIS para tracking geoespacial', color: 'orange' },
+          { proto: 'Mesh Protocol', layer: 'NET Layer', detail: isEn ? 'Dynamic multi-hop routing' : 'Enrutamiento dinámico multi-salto', color: 'blue' },
+          { proto: 'MQTT / REST', layer: 'APP Layer', detail: isEn ? 'PostGIS for geospatial tracking' : 'PostGIS para tracking geoespacial', color: 'orange' },
         ].map(({ proto, layer, detail, color }) => (
           <div key={proto} className="bg-dark-bg border border-dark-border rounded-lg p-3">
             <div className={`text-xs font-mono mb-1 ${color === 'neon' ? 'text-neon-green' : color === 'blue' ? 'text-electric-blue' : 'text-signal-orange'}`}>
@@ -122,29 +118,30 @@ function TopologyTab() {
   );
 }
 
-function HardwareTab() {
+function HardwareTab({ lang }: { lang: 'es' | 'en' }) {
+  const isEn = lang === 'en';
   const components = [
     {
       name: 'ESP32 MCU',
-      role: 'Microcontrolador Principal',
+      role: isEn ? 'Main Microcontroller' : 'Microcontrolador Principal',
       proto: 'WiFi + BLE',
-      detail: 'Xtensa dual-core 240MHz, 520KB SRAM. Gestiona todos los periféricos y la pila de comunicaciones.',
+      detail: isEn ? 'Xtensa dual-core 240MHz, 520KB SRAM. Manages all peripherals and comms stack.' : 'Xtensa dual-core 240MHz, 520KB SRAM. Gestiona todos los periféricos y la pila de comunicaciones.',
       color: '#00ff88',
       icon: '⚡',
     },
     {
       name: 'LoRa SX1276',
-      role: 'Radio de Largo Alcance',
+      role: isEn ? 'Long Range Radio' : 'Radio de Largo Alcance',
       proto: 'SPI',
-      detail: 'Módulo RYLR998. Rango >5km en campo abierto. Sub-GHz (915MHz). Consumo ultra-bajo en sleep.',
+      detail: isEn ? 'RYLR998 Module. Range >5km open field. Sub-GHz (915MHz). Ultra-low sleep power.' : 'Módulo RYLR998. Rango >5km en campo abierto. Sub-GHz (915MHz). Consumo ultra-bajo en sleep.',
       color: '#00d4ff',
       icon: '📡',
     },
     {
       name: 'GPS NEO-6M',
-      role: 'Localización Global',
+      role: isEn ? 'Global Tracking' : 'Localización Global',
       proto: 'UART',
-      detail: 'Precisión 2.5m CEP. Fix en <1s (hot start). Protocolo NMEA 0183. 50 canales de seguimiento.',
+      detail: isEn ? '2.5m CEP precision. Fix <1s (hot start). NMEA 0183 protocol. 50 tracking channels.' : 'Precisión 2.5m CEP. Fix en <1s (hot start). Protocolo NMEA 0183. 50 canales de seguimiento.',
       color: '#a78bfa',
       icon: '🛰️',
     },
@@ -152,15 +149,15 @@ function HardwareTab() {
       name: 'MPU6050',
       role: 'IMU 6-DOF',
       proto: 'I2C',
-      detail: 'Acelerómetro + giroscopio. Detección de caídas y actividad. Reduce transmisiones en reposo.',
+      detail: isEn ? 'Accelerometer + gyroscope. Fall & activity detection. Reduces transmissions while at rest.' : 'Acelerómetro + giroscopio. Detección de caídas y actividad. Reduce transmisiones en reposo.',
       color: '#f472b6',
       icon: '🔄',
     },
     {
       name: 'QMC5883P',
-      role: 'Brújula Digital',
+      role: isEn ? 'Digital Compass' : 'Brújula Digital',
       proto: 'I2C',
-      detail: 'Magnetómetro 3 ejes. Orientación de heading para navegación direccional offline.',
+      detail: isEn ? '3-axis magnetometer. Heading orientation for offline directional navigation.' : 'Magnetómetro 3 ejes. Orientación de heading para navegación direccional offline.',
       color: '#fbbf24',
       icon: '🧭',
     },
@@ -176,7 +173,7 @@ function HardwareTab() {
   return (
     <div className="space-y-6">
       <p className="text-text-muted text-sm font-mono">
-        <span className="text-neon-green">$</span> lspci -v | grep "Nodo Senderista" — Hardware embebido del dispositivo portátil
+        <span className="text-neon-green">$</span> lspci -v | grep "{isEn ? 'Hiker Node' : 'Nodo Senderista'}" — {isEn ? 'Embedded hardware of the portable device' : 'Hardware embebido del dispositivo portátil'}
       </p>
 
       {/* Component Cards */}
@@ -207,7 +204,7 @@ function HardwareTab() {
       {/* Protocol Bus Table */}
       <div className="bg-dark-bg rounded-xl border border-dark-border overflow-hidden">
         <div className="px-4 py-2 border-b border-dark-border">
-          <span className="terminal-text text-xs">// Bus de comunicación entre componentes</span>
+          <span className="terminal-text text-xs">// {isEn ? 'Hardware communication bus' : 'Bus de comunicación entre componentes'}</span>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-xs">
@@ -238,8 +235,14 @@ function HardwareTab() {
   );
 }
 
-export default function Back2HomeTabs() {
+export default function Back2HomeTabs({ lang = 'es' }: { lang?: 'es' | 'en' }) {
   const [activeTab, setActiveTab] = useState<TabKey>('topology');
+  const isEn = lang === 'en';
+
+  const tabs: { key: TabKey; label: string; icon: string }[] = [
+    { key: 'topology', label: isEn ? 'Network Topology' : 'Topología de Red', icon: '📡' },
+    { key: 'hardware', label: 'Hardware & Edge', icon: '🔧' },
+  ];
 
   return (
     <div className="mt-8">
@@ -277,7 +280,7 @@ export default function Back2HomeTabs() {
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.25 }}
         >
-          {activeTab === 'topology' ? <TopologyTab /> : <HardwareTab />}
+          {activeTab === 'topology' ? <TopologyTab lang={lang} /> : <HardwareTab lang={lang} />}
         </motion.div>
       </AnimatePresence>
     </div>

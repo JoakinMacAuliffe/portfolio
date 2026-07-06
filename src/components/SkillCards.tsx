@@ -17,7 +17,7 @@ interface SkillCategory {
   skills: Skill[];
 }
 
-const categories: SkillCategory[] = [
+const categoriesEs: SkillCategory[] = [
   {
     title: 'Lenguajes Base',
     subtitle: 'POO & Estructuras de Datos',
@@ -59,6 +59,48 @@ const categories: SkillCategory[] = [
   },
 ];
 
+const categoriesEn: SkillCategory[] = [
+  {
+    title: 'Core Languages',
+    subtitle: 'OOP & Data Structures',
+    icon: '💻',
+    color: '#00d4ff',
+    colorRgb: '0,212,255',
+    skills: [
+      { name: 'C++ (Advanced)', level: 90 },
+      { name: 'Java', level: 85 },
+      { name: 'Python', level: 85 },
+      { name: 'HTML5 / CSS3', level: 80 },
+    ],
+  },
+  {
+    title: 'Infrastructure & SysAdmin',
+    subtitle: 'Virtualization & Networks',
+    icon: '🐧',
+    color: '#00ff88',
+    colorRgb: '0,255,136',
+    skills: [
+      { name: 'Linux (CLI, Bash)', level: 90 },
+      { name: 'Proxmox VE', level: 85 },
+      { name: 'Networks (VLAN/VPN)', level: 80 },
+      { name: 'SSH / Security', level: 85 },
+    ],
+  },
+  {
+    title: 'Backend & Data',
+    subtitle: 'Web Services',
+    icon: '🗄️',
+    color: '#ff6b00',
+    colorRgb: '255,107,0',
+    skills: [
+      { name: 'Node.js / Express', level: 80 },
+      { name: 'PostgreSQL', level: 75 },
+      { name: 'MongoDB', level: 75 },
+      { name: 'REST APIs', level: 80 },
+    ],
+  },
+];
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -72,7 +114,9 @@ const cardVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 };
 
-export default function SkillCards() {
+export default function SkillCards({ lang = 'es' }: { lang?: 'es' | 'en' }) {
+  const categories = lang === 'en' ? categoriesEn : categoriesEs;
+
   return (
     <motion.div
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"

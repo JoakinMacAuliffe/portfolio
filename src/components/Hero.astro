@@ -1,6 +1,12 @@
 ---
 // Hero.astro — Limpio y directo
 import NodeCanvas from "./NodeCanvas";
+
+export interface Props {
+  lang?: "es" | "en";
+}
+const { lang = "es" } = Astro.props;
+const isEn = lang === "en";
 ---
 
 <section
@@ -78,22 +84,23 @@ import NodeCanvas from "./NodeCanvas";
       </h1>
 
       <p class="font-mono text-electric-blue text-sm mb-5 tracking-wide">
-        &gt; Estudiante de Ingeniería Civil en Informática y Telecomunicaciones
+        &gt; {isEn ? "Computer Engineering & Telecommunications Student" : "Estudiante de Ingeniería Civil en Informática y Telecomunicaciones"}
       </p>
 
       <p
         class="text-text-muted text-base max-w-md mx-auto lg:mx-0 mb-8 leading-relaxed"
       >
-        Diseño infraestructura crítica que conecta lo desconectado: redes mesh
-        autónomas, sistemas IoT embebidos y transmisión digital.
+        {isEn 
+          ? "I design critical infrastructure that connects the disconnected: autonomous mesh networks, embedded IoT systems, and digital transmission." 
+          : "Diseño infraestructura crítica que conecta lo desconectado: redes mesh autónomas, sistemas IoT embebidos y transmisión digital."}
       </p>
 
       <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
         <a
-          href="#back2home"
+          href={isEn ? "/en/#back2home" : "#back2home"}
           class="flex items-center gap-2 px-5 py-2.5 bg-neon-green text-dark-bg font-semibold rounded-lg hover:bg-neon-green/90 transition-all duration-300 text-sm"
         >
-          Ver Proyecto Estrella
+          {isEn ? "View Flagship Project" : "Ver Proyecto Estrella"}
         </a>
         <a
           href="https://linkedin.com/in/joakinmacauliffe"
@@ -112,7 +119,7 @@ import NodeCanvas from "./NodeCanvas";
           GitHub
         </a>
         <a
-          href="/cv"
+          href={isEn ? "/en/cv" : "/cv"}
           class="flex items-center gap-2 px-5 py-2.5 border border-signal-orange/40 text-signal-orange rounded-lg hover:bg-signal-orange/10 transition-all duration-300 text-sm"
         >
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>

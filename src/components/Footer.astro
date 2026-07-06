@@ -1,5 +1,10 @@
 ---
 // Footer.astro — Footer with contact links
+export interface Props {
+  lang?: "es" | "en";
+}
+const { lang = "es" } = Astro.props;
+const isEn = lang === "en";
 ---
 
 <footer class="relative border-t border-dark-border py-12 overflow-hidden">
@@ -15,7 +20,7 @@
           Joakin Mac-Auliffe
         </div>
         <div class="text-text-muted text-sm mb-3">
-          Estudiante de Ingeniería Civil en Informática y Telecomunicaciones
+          {isEn ? "Computer Engineering & Telecommunications Student" : "Estudiante de Ingeniería Civil en Informática y Telecomunicaciones"}
         </div>
         <div class="flex items-center gap-2">
           <span class="ping-dot w-2 h-2"></span>
@@ -28,14 +33,14 @@
 
       <!-- Navigation -->
       <div>
-        <h4 class="terminal-text text-xs mb-4">// navegación</h4>
+        <h4 class="terminal-text text-xs mb-4">// {isEn ? "navigation" : "navegación"}</h4>
         <ul class="space-y-2">
           {
             [
-              { href: "#hero", label: "inicio" },
-              { href: "#back2home", label: "back2home" },
-              { href: "#experiencia", label: "experiencia" },
-              { href: "#stack", label: "stack técnico" },
+              { href: isEn ? "/en/#hero" : "/#hero", label: isEn ? "home" : "inicio" },
+              { href: isEn ? "/en/#back2home" : "/#back2home", label: "back2home" },
+              { href: isEn ? "/en/#experiencia" : "/#experiencia", label: isEn ? "experience" : "experiencia" },
+              { href: isEn ? "/en/#stack" : "/#stack", label: isEn ? "tech stack" : "stack técnico" },
             ].map(({ href, label }) => (
               <li>
                 <a
@@ -53,7 +58,7 @@
 
       <!-- Contacto / Redes -->
       <div>
-        <h4 class="terminal-text text-xs mb-4">// contacto</h4>
+        <h4 class="terminal-text text-xs mb-4">// {isEn ? "contact" : "contacto"}</h4>
         <div class="space-y-3">
           <a
             href="https://github.com/JoakinMacAuliffe"
@@ -97,7 +102,7 @@
 
     <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
       <p class="terminal-text text-xs opacity-40">
-        © 2026 Joakin Fernando Mac-Auliffe López — Todos los derechos reservados
+        © 2026 Joakin Fernando Mac-Auliffe López — {isEn ? "All rights reserved" : "Todos los derechos reservados"}
       </p>
       <div class="flex items-center gap-2">
         <span class="ping-dot w-1.5 h-1.5"></span>

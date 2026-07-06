@@ -3,15 +3,14 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const experiences = [
+const experiencesEs = [
   {
     id: 0,
     title: 'Configuración y Soporte de Equipos',
     icon: '📡',
     color: '#00d4ff',
     tags: ['ISDB-Tb', 'Moduladores RF', 'Soporte en Terreno'],
-    description:
-      'Configuración y soporte de equipos de transmisión digital bajo el estándar ISDB-Tb, incluyendo análisis de calidad de señal mediante parámetros SNR, MER y BER.',
+    description: 'Configuración y soporte de equipos de transmisión digital bajo el estándar ISDB-Tb, incluyendo análisis de calidad de señal mediante parámetros SNR, MER y BER.',
   },
   {
     id: 1,
@@ -19,8 +18,7 @@ const experiences = [
     icon: '🔒',
     color: '#00ff88',
     tags: ['VPN / VLAN', 'Firewall', 'Acceso Remoto'],
-    description:
-      'Diseño e implementación de infraestructura de red dedicada para habilitar acceso remoto seguro a equipos de transmisión distribuidos geográficamente.',
+    description: 'Diseño e implementación de infraestructura de red dedicada para habilitar acceso remoto seguro a equipos de transmisión distribuidos geográficamente.',
   },
   {
     id: 2,
@@ -28,13 +26,40 @@ const experiences = [
     icon: '⚡',
     color: '#ff6b00',
     tags: ['Alta Potencia', 'Diagnóstico RF', 'Mantenimiento'],
-    description:
-      'Mantención preventiva y correctiva de sistemas de transmisión de alta potencia en terreno. Diagnóstico de amplificadores, líneas de transmisión y guías de onda.',
+    description: 'Mantención preventiva y correctiva de sistemas de transmisión de alta potencia en terreno. Diagnóstico de amplificadores, líneas de transmisión y guías de onda.',
   },
 ];
 
-export default function ExperienceTimeline() {
+const experiencesEn = [
+  {
+    id: 0,
+    title: 'Equipment Configuration & Support',
+    icon: '📡',
+    color: '#00d4ff',
+    tags: ['ISDB-Tb', 'RF Modulators', 'Field Support'],
+    description: 'Configuration and support of digital broadcasting equipment under the ISDB-Tb standard, including signal quality analysis via SNR, MER, and BER parameters.',
+  },
+  {
+    id: 1,
+    title: 'Network Infrastructure Design',
+    icon: '🔒',
+    color: '#00ff88',
+    tags: ['VPN / VLAN', 'Firewall', 'Remote Access'],
+    description: 'Design and implementation of dedicated network infrastructure to enable secure remote access to geographically distributed broadcasting equipment.',
+  },
+  {
+    id: 2,
+    title: 'Field Maintenance & Diagnostics',
+    icon: '⚡',
+    color: '#ff6b00',
+    tags: ['High Power', 'RF Diagnostics', 'Maintenance'],
+    description: 'Preventive and corrective maintenance of high-power transmission systems in the field. Diagnostics of amplifiers, transmission lines, and waveguides.',
+  },
+];
+
+export default function ExperienceTimeline({ lang = 'es' }: { lang?: 'es' | 'en' }) {
   const [openId, setOpenId] = useState<number | null>(0);
+  const experiences = lang === 'en' ? experiencesEn : experiencesEs;
 
   return (
     <div className="relative">

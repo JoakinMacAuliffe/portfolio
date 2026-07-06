@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import ResumeViewer from '../../components/ResumeViewer';
+---
+
+<Layout title="Joakin Mac-Auliffe | CV" description="Joakin Mac-Auliffe's Curriculum Vitae." lang="en">
+  <Navbar lang="en" />
+  
+  <main class="min-h-screen pb-20 relative overflow-hidden" style="padding-top: 120px;">
+    
+    <!-- Fixed Ambient Background -->
+    <div class="fixed inset-0 pointer-events-none z-0 bg-dark-bg">
+      <div class="absolute inset-0 bg-hero-gradient opacity-30"></div>
+      <div class="absolute inset-0 grid-overlay opacity-30"></div>
+      <div class="scanline opacity-20"></div>
+      
+      <!-- Floating Orbs -->
+      <div class="absolute top-[15%] left-[5%] w-[400px] h-[400px] bg-signal-orange/5 blur-[100px] rounded-full animate-float" style="animation-delay: 0s;"></div>
+      <div class="absolute top-[60%] right-[5%] w-[350px] h-[350px] bg-electric-blue/5 blur-[90px] rounded-full animate-float" style="animation-delay: -3s;"></div>
+      <div class="absolute bottom-[5%] left-[30%] w-[500px] h-[500px] bg-neon-green/5 blur-[120px] rounded-full animate-float" style="animation-delay: -1.5s;"></div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-4 relative z-10 flex flex-col items-center">
+      
+      <!-- Top Download Button -->
+      <div class="mb-8" data-aos="fade-down">
+        <a 
+          href="/cv.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="flex items-center gap-2 px-6 py-3 bg-signal-orange text-dark-bg font-bold rounded-lg shadow-[0_0_15px_rgba(255,107,0,0.4)] hover:shadow-[0_0_25px_rgba(255,107,0,0.6)] hover:bg-signal-orange/90 transition-all duration-300"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+          </svg>
+          Download CV
+        </a>
+      </div>
+
+      <!-- PDF Viewer component using react-pdf -->
+      <div class="w-full max-w-5xl mb-12 flex justify-center z-10 relative">
+        <ResumeViewer lang="en" client:only="react" />
+      </div>
+
+      <!-- Bottom Download Button -->
+      <div data-aos="fade-up">
+        <a 
+          href="/cv.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="flex items-center gap-2 px-6 py-3 bg-signal-orange text-dark-bg font-bold rounded-lg shadow-[0_0_15px_rgba(255,107,0,0.4)] hover:shadow-[0_0_25px_rgba(255,107,0,0.6)] hover:bg-signal-orange/90 transition-all duration-300"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+          </svg>
+          Download CV
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer lang="en" />
+</Layout>

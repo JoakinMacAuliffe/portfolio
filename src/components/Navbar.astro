@@ -1,5 +1,28 @@
 ---
 // Navbar.astro — Sticky navigation with glassmorphism + scroll spy
+
+export interface Props {
+  lang?: "es" | "en";
+}
+const { lang = "es" } = Astro.props;
+const isEn = lang === "en";
+
+const currentPath = Astro.url.pathname;
+const isCvPage = currentPath.includes('/cv');
+const toggleHref = isCvPage 
+  ? (isEn ? "/cv" : "/en/cv")
+  : (isEn ? "/" : "/en/");
+
+// Diccionario de navegación
+const links = [
+  { href: isEn ? '/en/#hero' : '/#hero', label: isEn ? 'home' : 'inicio', id: 'nav-hero' },
+  { href: isEn ? '/en/#sobre-mi' : '/#sobre-mi', label: isEn ? 'about me' : 'sobre mí', id: 'nav-about' },
+  { href: isEn ? '/en/#educacion' : '/#educacion', label: isEn ? 'education' : 'educación', id: 'nav-edu' },
+  { href: isEn ? '/en/#back2home' : '/#back2home', label: 'back2home', id: 'nav-b2h' },
+  { href: isEn ? '/en/#experiencia' : '/#experiencia', label: isEn ? 'experience' : 'experiencia', id: 'nav-exp' },
+  { href: isEn ? '/en/#stack' : '/#stack', label: 'stack', id: 'nav-stack' },
+  { href: isEn ? '/en/cv' : '/cv', label: 'cv', id: 'nav-cv' },
+];
 ---
 
 <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
@@ -17,15 +40,7 @@
 
     <!-- Navigation Links -->
     <ul class="flex items-center gap-1 sm:gap-2">
-      {[
-        { href: '/#hero', label: 'inicio', id: 'nav-hero' },
-        { href: '/#sobre-mi', label: 'sobre mí', id: 'nav-about' },
-        { href: '/#educacion', label: 'educación', id: 'nav-edu' },
-        { href: '/#back2home', label: 'back2home', id: 'nav-b2h' },
-        { href: '/#experiencia', label: 'experiencia', id: 'nav-exp' },
-        { href: '/#stack', label: 'stack', id: 'nav-stack' },
-        { href: '/cv', label: 'cv', id: 'nav-cv' },
-      ].map(({ href, label, id }) => (
+      {links.map(({ href, label, id }) => (
         <li>
           <a
             href={href}
@@ -40,7 +55,19 @@
       ))}
     </ul>
 
-    <!-- CTA -->
+    <!-- Actions (Lang + GitHub) -->
+    <div class="flex items-center gap-4">
+      <!-- Language Switcher -->
+      <a
+        href={toggleHref}
+        class="flex items-center gap-2 px-3 py-1.5 border border-dark-border rounded text-text-muted font-mono text-xs hover:border-signal-orange hover:text-signal-orange transition-all duration-300"
+        title={isEn ? "Cambiar a Español" : "Switch to English"}
+      >
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+        {isEn ? "ES" : "EN"}
+      </a>
+
+      <!-- GitHub -->
     <a
       href="https://github.com/JoakinMacAuliffe"
       target="_blank"
@@ -52,6 +79,7 @@
       </svg>
       GitHub
     </a>
+    </div>
   </nav>
 </header>
 

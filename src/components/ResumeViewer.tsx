@@ -4,7 +4,8 @@ import { Document, Page, pdfjs } from 'react-pdf';
 // Configurar el worker desde un CDN para evitar problemas de build/SSR (unpkg)
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
-export default function ResumeViewer() {
+export default function ResumeViewer({ lang = 'es' }: { lang?: 'es' | 'en' }) {
+  const isEn = lang === 'en';
   const [width, setWidth] = useState(1200);
   const [numPages, setNumPages] = useState<number | null>(null);
 
@@ -44,7 +45,7 @@ export default function ResumeViewer() {
           loading={
             <div className="flex flex-col items-center justify-center p-12 h-[800px] w-[800px] max-w-full">
               <div className="w-12 h-12 rounded-full border-2 border-t-signal-orange border-r-signal-orange border-b-transparent border-l-transparent animate-spin mb-4"></div>
-              <p className="text-text-muted font-mono text-sm">Cargando documento PDF...</p>
+              <p className="text-text-muted font-mono text-sm">{isEn ? "Loading PDF document..." : "Cargando documento PDF..."}</p>
             </div>
           }
           className="flex flex-col items-center justify-center"

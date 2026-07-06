@@ -1,6 +1,12 @@
 ---
 // Back2Home.astro — Caso de estudio simplificado
 import Back2HomeTabs from "./Back2HomeTabs";
+
+export interface Props {
+  lang?: "es" | "en";
+}
+const { lang = "es" } = Astro.props;
+const isEn = lang === "en";
 ---
 
 <section id="back2home" class="relative py-20 overflow-hidden">
@@ -14,13 +20,13 @@ import Back2HomeTabs from "./Back2HomeTabs";
   <div class="max-w-4xl mx-auto px-6">
     <!-- Header -->
     <div class="mb-8">
-      <span class="section-label">// proyecto_estrella.iot</span>
+      <span class="section-label">// {isEn ? "flagship_project.iot" : "proyecto_estrella.iot"}</span>
 
       <!-- Winner badge inline -->
       <div class="flex items-center gap-3 mt-4 mb-5">
         <span class="text-lg">🏆</span>
         <span class="text-signal-orange font-mono text-xs font-semibold">
-          1er Lugar Feria de Proyectos TICs · UDP 2026
+          {isEn ? "1st Place ICT Projects Fair · UDP 2026" : "1er Lugar Feria de Proyectos TICs · UDP 2026"}
         </span>
       </div>
 
@@ -28,8 +34,9 @@ import Back2HomeTabs from "./Back2HomeTabs";
         <span class="text-neon font-mono">back2home</span>
       </h2>
       <p class="text-text-muted text-base max-w-xl">
-        Red IoT Mesh autónoma para prevención de extravíos en parques
-        nacionales, sin cobertura celular.
+        {isEn 
+          ? "Autonomous IoT Mesh network for preventing disappearances in national parks, working without cellular coverage." 
+          : "Red IoT Mesh autónoma para prevención de extravíos en parques nacionales, sin cobertura celular."}
       </p>
     </div>
 
@@ -41,17 +48,17 @@ import Back2HomeTabs from "./Back2HomeTabs";
         [
           {
             stat: ">170",
-            label: "rescates/año en Chile",
+            label: isEn ? "rescues/year in Chile" : "rescates/año en Chile",
             color: "text-red-400",
           },
           {
             stat: "$12M",
-            label: "CLP por operativo SAR",
+            label: isEn ? "CLP per SAR operation" : "CLP por operativo SAR",
             color: "text-red-400",
           },
           {
             stat: "<50m",
-            label: "precisión de búsqueda",
+            label: isEn ? "search precision" : "precisión de búsqueda",
             color: "text-neon-green",
           },
         ].map(({ stat, label, color }) => (
@@ -70,10 +77,10 @@ import Back2HomeTabs from "./Back2HomeTabs";
       <div class="flex items-center gap-2 mb-1">
         <div class="ping-dot w-2 h-2"></div>
         <span class="font-mono text-electric-blue text-sm font-semibold"
-          >Arquitectura Técnica</span
+          >{isEn ? "Technical Architecture" : "Arquitectura Técnica"}</span
         >
       </div>
-      <Back2HomeTabs client:load />
+      <Back2HomeTabs lang={lang} client:load />
     </div>
   </div>
 </section>

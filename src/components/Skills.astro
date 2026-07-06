@@ -1,6 +1,12 @@
 ---
 // Skills.astro — Stack limpio
 import SkillCards from './SkillCards';
+
+export interface Props {
+  lang?: "es" | "en";
+}
+const { lang = "es" } = Astro.props;
+const isEn = lang === "en";
 ---
 
 <section id="stack" class="relative py-20 overflow-hidden">
@@ -11,19 +17,19 @@ import SkillCards from './SkillCards';
 
     <!-- Header -->
     <div class="mb-8">
-      <span class="section-label">// stack_tecnico.json</span>
+      <span class="section-label">// technical_stack.json</span>
       <h2 class="text-4xl sm:text-5xl font-bold text-text-primary mt-4 mb-2">
-        Stack <span class="text-neon-orange">Técnico</span>
+        {isEn ? "Technical" : "Stack"} <span class="text-neon-orange">{isEn ? "Stack" : "Técnico"}</span>
       </h2>
       <p class="text-text-muted text-sm">
-        RF & Wireless · Hardware embebido · Software & Cloud
+        RF & Wireless · {isEn ? "Embedded Hardware" : "Hardware embebido"} · Software & Cloud
       </p>
     </div>
 
     <div class="divider-glow mb-10"></div>
 
     <!-- Skill Cards -->
-    <SkillCards client:load />
+    <SkillCards lang={lang} client:load />
 
   </div>
 </section>

@@ -1,6 +1,12 @@
 ---
 // Experience.astro — Simplificado
 import ExperienceTimeline from "./ExperienceTimeline";
+
+export interface Props {
+  lang?: "es" | "en";
+}
+const { lang = "es" } = Astro.props;
+const isEn = lang === "en";
 ---
 
 <section id="experiencia" class="relative py-20 overflow-hidden">
@@ -13,17 +19,17 @@ import ExperienceTimeline from "./ExperienceTimeline";
   <div class="relative z-10 max-w-4xl mx-auto px-6">
     <!-- Header -->
     <div class="mb-8">
-      <span class="section-label">// experiencia.log</span>
+      <span class="section-label">// {isEn ? "experience.log" : "experiencia.log"}</span>
 
       <div
         class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-4"
       >
         <div>
           <h2 class="text-4xl sm:text-5xl font-bold text-text-primary">
-            Experiencia
+            {isEn ? "Experience" : "Experiencia"}
           </h2>
           <p class="text-text-muted text-sm mt-1">
-            Práctica Profesional I · Enero - Marzo 2026
+            {isEn ? "Professional Internship I · Jan - Mar 2026" : "Práctica Profesional I · Enero - Marzo 2026"}
           </p>
         </div>
 
@@ -35,7 +41,7 @@ import ExperienceTimeline from "./ExperienceTimeline";
           <div>
             <div class="font-semibold text-text-primary text-sm">Sercom</div>
             <div class="text-electric-blue font-mono text-xs">
-              Transmisión Digital · ISDB-Tb
+              {isEn ? "Digital Broadcasting · ISDB-Tb" : "Transmisión Digital · ISDB-Tb"}
             </div>
           </div>
         </div>
@@ -45,16 +51,12 @@ import ExperienceTimeline from "./ExperienceTimeline";
     <div class="divider-glow mb-6"></div>
 
     <div class="mb-8 text-text-muted text-sm leading-relaxed max-w-3xl">
-      Durante mi práctica en <strong class="text-text-primary"
-        >Sercom S.A.</strong
-      > adquirí conocimientos prácticos fundamentales sobre sistemas de transmisión
-      digital en el estándar ISDB-Tb. Esta experiencia en terreno me permitió desarrollar
-      habilidades en la configuración y soporte de equipos, diseño de infraestructura
-      de red para accesos remotos y el diagnóstico avanzado de sistemas de transmisión
-      de alta potencia.
+      {isEn 
+        ? <Fragment>During my internship at <strong class="text-text-primary">Sercom S.A.</strong> I acquired fundamental practical knowledge on digital broadcasting systems in the ISDB-Tb standard. This field experience allowed me to develop skills in equipment configuration and support, network infrastructure design for remote access, and advanced diagnostics of high-power transmission systems.</Fragment>
+        : <Fragment>Durante mi práctica en <strong class="text-text-primary">Sercom S.A.</strong> adquirí conocimientos prácticos fundamentales sobre sistemas de transmisión digital en el estándar ISDB-Tb. Esta experiencia en terreno me permitió desarrollar habilidades en la configuración y soporte de equipos, diseño de infraestructura de red para accesos remotos y el diagnóstico avanzado de sistemas de transmisión de alta potencia.</Fragment>}
     </div>
 
     <!-- Timeline accordion -->
-    <ExperienceTimeline client:load />
+    <ExperienceTimeline lang={lang} client:load />
   </div>
 </section>

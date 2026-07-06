@@ -1,5 +1,10 @@
 ---
 // About.astro — Perfil y Motivaciones (Montañismo y Música)
+export interface Props {
+  lang?: "es" | "en";
+}
+const { lang = "es" } = Astro.props;
+const isEn = lang === "en";
 ---
 
 <section id="sobre-mi" class="relative py-20 overflow-hidden">
@@ -9,12 +14,12 @@
   <div class="max-w-4xl mx-auto px-6">
     <!-- Header -->
     <div class="mb-10">
-      <span class="section-label">// perfil_diagnostico.sys</span>
+      <span class="section-label">// {isEn ? "diagnostic_profile.sys" : "perfil_diagnostico.sys"}</span>
       <h2 class="text-4xl sm:text-5xl font-bold text-text-primary mt-4 mb-2">
-        Sobre <span class="text-neon-blue">Mí</span>
+        {isEn ? "About" : "Sobre"} <span class="text-neon-blue">{isEn ? "Me" : "Mí"}</span>
       </h2>
       <p class="text-text-muted text-sm">
-        Correlación entre intereses personales y enfoque ingenieril.
+        {isEn ? "Correlation between personal interests and engineering approach." : "Correlación entre intereses personales y enfoque ingenieril."}
       </p>
     </div>
 
@@ -32,23 +37,23 @@
               🏔️
             </div>
             <div>
-              <h3 class="font-mono text-electric-blue font-semibold">Montañismo</h3>
-              <div class="text-xs text-text-muted font-mono mt-0.5">Grupo de Montaña UDP</div>
+              <h3 class="font-mono text-electric-blue font-semibold">{isEn ? "Mountaineering" : "Montañismo"}</h3>
+              <div class="text-xs text-text-muted font-mono mt-0.5">{isEn ? "UDP Mountain Group" : "Grupo de Montaña UDP"}</div>
             </div>
           </div>
           
           <div class="space-y-3 text-sm text-text-muted leading-relaxed">
             <p>
-              Mi conexión con la naturaleza y los entornos extremos de la cordillera fue la inspiración directa para enfocarme en las telecomunicaciones.
+              {isEn ? "My connection with nature and the extreme environments of the Andes was the direct inspiration for focusing on telecommunications." : "Mi conexión con la naturaleza y los entornos extremos de la cordillera fue la inspiración directa para enfocarme en las telecomunicaciones."}
             </p>
             <p class="pl-3 border-l-2 border-electric-blue/40 text-text-primary">
-              Experimentar la desconexión total en terreno me llevó a co-diseñar <span class="text-neon-green font-mono">back2home</span>, resolviendo problemas reales de conectividad donde las redes comerciales no existen.
+              {isEn ? "Experiencing total disconnection in the field led me to co-design " : "Experimentar la desconexión total en terreno me llevó a co-diseñar "}<span class="text-neon-green font-mono">back2home</span>{isEn ? ", solving real connectivity problems where commercial networks do not exist." : ", resolviendo problemas reales de conectividad donde las redes comerciales no existen."}
             </p>
           </div>
           
           <div class="mt-5 flex gap-2">
-            <span class="text-[10px] px-2 py-1 rounded bg-dark-bg border border-dark-border text-electric-blue font-mono">RESILIENCIA</span>
-            <span class="text-[10px] px-2 py-1 rounded bg-dark-bg border border-dark-border text-electric-blue font-mono">TERRENO</span>
+            <span class="text-[10px] px-2 py-1 rounded bg-dark-bg border border-dark-border text-electric-blue font-mono">{isEn ? "RESILIENCE" : "RESILIENCIA"}</span>
+            <span class="text-[10px] px-2 py-1 rounded bg-dark-bg border border-dark-border text-electric-blue font-mono">{isEn ? "FIELDWORK" : "TERRENO"}</span>
           </div>
         </div>
       </div>
@@ -69,23 +74,23 @@
               🎸
             </div>
             <div>
-              <h3 class="font-mono text-signal-orange font-semibold">Música</h3>
-              <div class="text-xs text-text-muted font-mono mt-0.5">Guitarrista Principal (CMP UDP)</div>
+              <h3 class="font-mono text-signal-orange font-semibold">{isEn ? "Music" : "Música"}</h3>
+              <div class="text-xs text-text-muted font-mono mt-0.5">{isEn ? "Lead Guitarist (UDP CMP)" : "Guitarrista Principal (CMP UDP)"}</div>
             </div>
           </div>
           
           <div class="space-y-3 text-sm text-text-muted leading-relaxed">
             <p>
-              Como guitarrista principal en la Compañía de Música Popular UDP, encuentro el equilibrio perfecto entre creatividad y estructura.
+              {isEn ? "As the lead guitarist in the UDP Popular Music Company, I find the perfect balance between creativity and structure." : "Como guitarrista principal en la Compañía de Música Popular UDP, encuentro el equilibrio perfecto entre creatividad y estructura."}
             </p>
             <p class="pl-3 border-l-2 border-signal-orange/40 text-text-primary">
-              La música me ha forjado una fuerte <span class="text-signal-orange">disciplina</span> y la capacidad de resolver problemas complejos dividiéndolos en patrones estructurados, habilidades que aplico diariamente en el desarrollo de software y diseño de redes.
+              {isEn ? "Music has forged in me a strong " : "La música me ha forjado una fuerte "}<span class="text-signal-orange">{isEn ? "discipline" : "disciplina"}</span>{isEn ? " and the ability to solve complex problems by breaking them down into structured patterns, skills I apply daily in software development and network design." : " y la capacidad de resolver problemas complejos dividiéndolos en patrones estructurados, habilidades que aplico diariamente en el desarrollo de software y diseño de redes."}
             </p>
           </div>
 
           <div class="mt-5 flex gap-2">
-            <span class="text-[10px] px-2 py-1 rounded bg-dark-bg border border-dark-border text-signal-orange font-mono">DISCIPLINA</span>
-            <span class="text-[10px] px-2 py-1 rounded bg-dark-bg border border-dark-border text-signal-orange font-mono">CREATIVIDAD</span>
+            <span class="text-[10px] px-2 py-1 rounded bg-dark-bg border border-dark-border text-signal-orange font-mono">{isEn ? "DISCIPLINE" : "DISCIPLINA"}</span>
+            <span class="text-[10px] px-2 py-1 rounded bg-dark-bg border border-dark-border text-signal-orange font-mono">{isEn ? "CREATIVITY" : "CREATIVIDAD"}</span>
           </div>
         </div>
       </div>
