@@ -9,7 +9,7 @@ const { lang = "es" } = Astro.props;
 const isEn = lang === "en";
 ---
 
-<section id="back2home" class="relative py-20 overflow-hidden">
+<section id="back2home" class="relative py-16 sm:py-20 overflow-hidden">
   <div class="absolute inset-0 grid-overlay opacity-20 pointer-events-none">
   </div>
   <div
@@ -17,33 +17,33 @@ const isEn = lang === "en";
   >
   </div>
 
-  <div class="max-w-4xl mx-auto px-6">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
     <!-- Header -->
-    <div class="mb-8">
+    <div class="mb-6 sm:mb-8">
       <span class="section-label">// {isEn ? "flagship_project.iot" : "proyecto_estrella.iot"}</span>
 
       <!-- Winner badge inline -->
-      <div class="flex items-center gap-3 mt-4 mb-5">
-        <span class="text-lg">🏆</span>
-        <span class="text-signal-orange font-mono text-xs font-semibold">
+      <div class="flex items-center gap-3 mt-4 mb-4 sm:mb-5">
+        <span class="text-base sm:text-lg">🏆</span>
+        <span class="text-signal-orange font-mono text-xs font-semibold leading-snug">
           {isEn ? "1st Place ICT Projects Fair · UDP 2026" : "1er Lugar Feria de Proyectos TICs · UDP 2026"}
         </span>
       </div>
 
-      <h2 class="text-4xl sm:text-5xl font-bold mb-2">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
         <span class="text-neon font-mono">back2home</span>
       </h2>
-      <p class="text-text-muted text-base max-w-xl">
+      <p class="text-text-muted text-sm sm:text-base max-w-xl leading-relaxed">
         {isEn 
           ? "Autonomous IoT Mesh network for preventing disappearances in national parks, working without cellular coverage." 
           : "Red IoT Mesh autónoma para prevención de extravíos en parques nacionales, sin cobertura celular."}
       </p>
     </div>
 
-    <div class="divider-glow mb-8"></div>
+    <div class="divider-glow mb-6 sm:mb-8"></div>
 
-    <!-- Stats: 3 numbers, limpio -->
-    <div class="grid grid-cols-3 gap-4 mb-10">
+    <!-- Stats: responsive grid -->
+    <div class="grid grid-cols-3 gap-2 sm:gap-4 mb-8 sm:mb-10">
       {
         [
           {
@@ -62,18 +62,18 @@ const isEn = lang === "en";
             color: "text-neon-green",
           },
         ].map(({ stat, label, color }) => (
-          <div class="text-center p-4 rounded-xl bg-dark-card border border-dark-border">
-            <div class={`font-mono text-2xl font-black mb-1 ${color}`}>
+          <div class="text-center p-2.5 sm:p-4 rounded-xl bg-dark-card border border-dark-border">
+            <div class={`font-mono text-lg sm:text-2xl font-black mb-1 ${color}`}>
               {stat}
             </div>
-            <div class="text-text-muted text-xs leading-tight">{label}</div>
+            <div class="text-text-muted text-[10px] sm:text-xs leading-tight">{label}</div>
           </div>
         ))
       }
     </div>
 
     <!-- Technical tabs -->
-    <div class="card-glow p-6">
+    <div class="card-glow p-4 sm:p-6">
       <div class="flex items-center gap-2 mb-1">
         <div class="ping-dot w-2 h-2"></div>
         <span class="font-mono text-electric-blue text-sm font-semibold"

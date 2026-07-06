@@ -26,9 +26,9 @@ const links = [
 ---
 
 <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-  <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
     <!-- Logo -->
-    <a href="#hero" class="flex items-center gap-2.5 group">
+    <a href="#hero" class="flex items-center gap-2.5 group flex-shrink-0">
       <div class="relative w-8 h-8 border border-neon-green/40 rounded flex items-center justify-center group-hover:border-neon-green transition-colors duration-300">
         <span class="text-neon-green font-mono text-xs font-bold">JM</span>
       </div>
@@ -38,49 +38,96 @@ const links = [
       <span class="ping-dot absolute -top-0.5 -right-0.5 w-1.5 h-1.5" style="position:relative;"></span>
     </a>
 
-    <!-- Navigation Links -->
-    <ul class="flex items-center gap-1 sm:gap-2">
+    <!-- Desktop Navigation Links -->
+    <ul class="hidden lg:flex items-center gap-1">
       {links.map(({ href, label, id }) => (
         <li>
           <a
             href={href}
             id={id}
-            class="nav-link relative px-3 py-1.5 font-mono text-xs sm:text-sm text-text-muted hover:text-neon-green transition-colors duration-200 group"
+            class="nav-link relative px-2.5 py-1.5 font-mono text-xs text-text-muted hover:text-neon-green transition-colors duration-200 group"
           >
             <span class="text-neon-green/40 group-hover:text-neon-green/60 transition-colors">/</span>
             {label}
-            <span class="absolute bottom-0 left-3 right-3 h-px bg-neon-green scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            <span class="absolute bottom-0 left-2.5 right-2.5 h-px bg-neon-green scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
           </a>
         </li>
       ))}
     </ul>
 
-    <!-- Actions (Lang + GitHub) -->
-    <div class="flex items-center gap-4">
+    <!-- Actions (Lang + GitHub + Hamburger) -->
+    <div class="flex items-center gap-2 sm:gap-3">
       <!-- Language Switcher -->
       <a
         href={toggleHref}
-        class="flex items-center gap-2 px-3 py-1.5 border border-dark-border rounded text-text-muted font-mono text-xs hover:border-signal-orange hover:text-signal-orange hover:bg-signal-orange/10 transition-all duration-300"
+        class="flex items-center gap-1.5 px-2.5 py-1.5 border border-dark-border rounded text-text-muted font-mono text-xs hover:border-signal-orange hover:text-signal-orange hover:bg-signal-orange/10 transition-all duration-300"
         title={isEn ? "Cambiar a Español" : "Switch to English"}
       >
         <span class="text-sm">{isEn ? "🇪🇸" : "🇬🇧"}</span>
-        <span class="font-bold">{isEn ? "ES" : "EN"}</span>
+        <span class="font-bold hidden xs:inline">{isEn ? "ES" : "EN"}</span>
       </a>
 
-      <!-- GitHub -->
-    <a
-      href="https://github.com/JoakinMacAuliffe"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="hidden sm:flex items-center gap-2 px-4 py-2 border border-neon-green/30 rounded text-neon-green font-mono text-xs hover:bg-neon-green/10 hover:border-neon-green transition-all duration-300 group"
-    >
-      <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-      </svg>
-      GitHub
-    </a>
+      <!-- GitHub (desktop only) -->
+      <a
+        href="https://github.com/JoakinMacAuliffe"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden lg:flex items-center gap-2 px-3 py-1.5 border border-neon-green/30 rounded text-neon-green font-mono text-xs hover:bg-neon-green/10 hover:border-neon-green transition-all duration-300 group"
+      >
+        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+        GitHub
+      </a>
+
+      <!-- Hamburger button (mobile/tablet) -->
+      <button
+        id="mobile-menu-btn"
+        class="lg:hidden flex flex-col justify-center items-center w-9 h-9 rounded border border-dark-border hover:border-neon-green/50 transition-colors duration-300 gap-1.5 px-2"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+      >
+        <span class="hamburger-line block w-full h-px bg-text-muted transition-all duration-300"></span>
+        <span class="hamburger-line block w-full h-px bg-text-muted transition-all duration-300"></span>
+        <span class="hamburger-line block w-full h-px bg-text-muted transition-all duration-300"></span>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile Menu Drawer -->
+  <div
+    id="mobile-menu"
+    class="lg:hidden hidden bg-dark-bg/95 backdrop-blur-md border-b border-dark-border"
+  >
+    <div class="max-w-6xl mx-auto px-4 py-4">
+      <ul class="grid grid-cols-2 gap-1 mb-4">
+        {links.map(({ href, label, id }) => (
+          <li>
+            <a
+              href={href}
+              id={`mobile-${id}`}
+              class="mobile-nav-link flex items-center gap-1 px-3 py-2.5 rounded-lg font-mono text-sm text-text-muted hover:text-neon-green hover:bg-neon-green/5 transition-all duration-200"
+            >
+              <span class="text-neon-green/40">/</span>
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <!-- GitHub in mobile menu -->
+      <a
+        href="https://github.com/JoakinMacAuliffe"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-2 w-full px-3 py-2.5 border border-neon-green/30 rounded-lg text-neon-green font-mono text-sm hover:bg-neon-green/10 transition-all duration-300"
+      >
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+        GitHub
+      </a>
+    </div>
+  </div>
 </header>
 
 <script>
@@ -92,5 +139,31 @@ const links = [
     } else {
       navbar?.classList.remove('bg-dark-bg/90', 'backdrop-blur-md', 'border-b', 'border-dark-border');
     }
+  });
+
+  // Mobile menu toggle
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const lines = btn?.querySelectorAll('.hamburger-line');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('hidden') === false;
+    btn.setAttribute('aria-expanded', String(isOpen));
+    if (isOpen) {
+      lines?.[0].classList.add('rotate-45', 'translate-y-[7px]');
+      lines?.[1].classList.add('opacity-0');
+      lines?.[2].classList.add('-rotate-45', '-translate-y-[7px]');
+    } else {
+      lines?.forEach(l => l.classList.remove('rotate-45', 'translate-y-[7px]', 'opacity-0', '-rotate-45', '-translate-y-[7px]'));
+    }
+  });
+
+  // Close menu on link click
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      btn?.setAttribute('aria-expanded', 'false');
+      lines?.forEach(l => l.classList.remove('rotate-45', 'translate-y-[7px]', 'opacity-0', '-rotate-45', '-translate-y-[7px]'));
+    });
   });
 </script>

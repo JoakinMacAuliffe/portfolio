@@ -25,25 +25,25 @@ const isEn = lang === "en";
 
   <!-- Content -->
   <div
-    class="relative z-10 max-w-4xl mx-auto px-6 pt-28 pb-20 flex flex-col lg:flex-row items-center gap-16"
+    class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-16 sm:pb-20 flex flex-col lg:flex-row items-center gap-10 sm:gap-16"
   >
     <!-- Avatar -->
     <div class="relative flex-shrink-0">
-      <div class="relative w-52 h-52 sm:w-60 sm:h-60">
+      <div class="relative w-40 h-40 sm:w-52 sm:h-52 md:w-60 md:h-60">
         <div
-          class="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-neon-green"
+          class="absolute top-0 left-0 w-4 h-4 sm:w-5 sm:h-5 border-t-2 border-l-2 border-neon-green"
         >
         </div>
         <div
-          class="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-neon-green"
+          class="absolute top-0 right-0 w-4 h-4 sm:w-5 sm:h-5 border-t-2 border-r-2 border-neon-green"
         >
         </div>
         <div
-          class="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-neon-green"
+          class="absolute bottom-0 left-0 w-4 h-4 sm:w-5 sm:h-5 border-b-2 border-l-2 border-neon-green"
         >
         </div>
         <div
-          class="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-neon-green"
+          class="absolute bottom-0 right-0 w-4 h-4 sm:w-5 sm:h-5 border-b-2 border-r-2 border-neon-green"
         >
         </div>
         <div
@@ -61,7 +61,7 @@ const isEn = lang === "en";
           </div>
         </div>
         <div
-          class="absolute -bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2"
+          class="absolute -bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 whitespace-nowrap"
         >
           <span class="ping-dot w-2 h-2"></span>
           <span class="terminal-text text-xs opacity-60">RF:ACTIVE</span>
@@ -70,35 +70,35 @@ const isEn = lang === "en";
     </div>
 
     <!-- Text -->
-    <div class="flex-1 text-center lg:text-left">
-      <div class="flex flex-wrap gap-2 mb-5 justify-center lg:justify-start">
-        <span class="badge-neon">Universidad Diego Portales</span>
-        <span class="badge-orange">Santiago, Chile</span>
+    <div class="flex-1 text-center lg:text-left mt-4 sm:mt-0">
+      <div class="flex flex-wrap gap-2 mb-4 sm:mb-5 justify-center lg:justify-start">
+        <span class="badge-neon text-[0.65rem] sm:text-[0.7rem]">Universidad Diego Portales</span>
+        <span class="badge-orange text-[0.65rem] sm:text-[0.7rem]">Santiago, Chile</span>
       </div>
 
       <h1
-        class="text-5xl sm:text-6xl font-bold text-text-primary mb-2 leading-tight"
+        class="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary mb-2 leading-tight"
       >
         Joakin
         <span class="block text-neon">Mac-Auliffe</span>
       </h1>
 
-      <p class="font-mono text-electric-blue text-sm mb-5 tracking-wide">
+      <p class="font-mono text-electric-blue text-xs sm:text-sm mb-4 sm:mb-5 tracking-wide leading-relaxed">
         &gt; {isEn ? "Computer Engineering & Telecommunications Student" : "Estudiante de Ingeniería Civil en Informática y Telecomunicaciones"}
       </p>
 
       <p
-        class="text-text-muted text-base max-w-md mx-auto lg:mx-0 mb-8 leading-relaxed"
+        class="text-text-muted text-sm sm:text-base max-w-md mx-auto lg:mx-0 mb-6 sm:mb-8 leading-relaxed"
       >
         {isEn 
           ? "I design critical infrastructure that connects the disconnected: autonomous mesh networks, embedded IoT systems, and digital transmission." 
           : "Diseño infraestructura crítica que conecta lo desconectado: redes mesh autónomas, sistemas IoT embebidos y transmisión digital."}
       </p>
 
-      <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+      <div class="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start">
         <a
           href={isEn ? "/en/#back2home" : "#back2home"}
-          class="flex items-center gap-2 px-5 py-2.5 bg-neon-green text-dark-bg font-semibold rounded-lg hover:bg-neon-green/90 transition-all duration-300 text-sm"
+          class="flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-neon-green text-dark-bg font-semibold rounded-lg hover:bg-neon-green/90 transition-all duration-300 text-xs sm:text-sm"
         >
           {isEn ? "View Flagship Project" : "Ver Proyecto Estrella"}
         </a>
@@ -106,30 +106,30 @@ const isEn = lang === "en";
           href="https://linkedin.com/in/joakinmacauliffe"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center gap-2 px-5 py-2.5 border border-electric-blue/40 text-electric-blue rounded-lg hover:bg-electric-blue/10 transition-all duration-300 text-sm"
+          class="flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 border border-electric-blue/40 text-electric-blue rounded-lg hover:bg-electric-blue/10 transition-all duration-300 text-xs sm:text-sm"
         >
           LinkedIn
         </a>
         <a
           href="mailto:jfmacauliffe@gmail.com"
-          class="flex items-center gap-2 px-5 py-2.5 border border-dark-border text-text-muted rounded-lg hover:border-text-primary hover:text-text-primary transition-all duration-300 text-sm"
+          class="flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 border border-dark-border text-text-muted rounded-lg hover:border-text-primary hover:text-text-primary transition-all duration-300 text-xs sm:text-sm"
         >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
           Email
         </a>
         <a
           href="https://github.com/JoakinMacAuliffe"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center gap-2 px-5 py-2.5 border border-dark-border text-text-muted rounded-lg hover:border-neon-green/40 hover:text-neon-green transition-all duration-300 text-sm"
+          class="flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 border border-dark-border text-text-muted rounded-lg hover:border-neon-green/40 hover:text-neon-green transition-all duration-300 text-xs sm:text-sm"
         >
           GitHub
         </a>
         <a
           href={isEn ? "/en/cv" : "/cv"}
-          class="flex items-center gap-2 px-5 py-2.5 border border-signal-orange/40 text-signal-orange rounded-lg hover:bg-signal-orange/10 transition-all duration-300 text-sm"
+          class="flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 border border-signal-orange/40 text-signal-orange rounded-lg hover:bg-signal-orange/10 transition-all duration-300 text-xs sm:text-sm"
         >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
           CV
         </a>
       </div>

@@ -34,12 +34,12 @@ function TopologyTab({ lang }: { lang: 'es' | 'en' }) {
       </p>
 
       {/* SVG Topology Diagram */}
-      <div className="relative bg-dark-bg rounded-xl border border-dark-border p-4 overflow-hidden" style={{ minHeight: '220px' }}>
+      <div className="relative bg-dark-bg rounded-xl border border-dark-border p-3 sm:p-4 overflow-hidden" style={{ minHeight: '180px' }}>
         <div className="absolute inset-0 grid-overlay opacity-30 rounded-xl"></div>
         <svg
           viewBox="0 0 100 100"
           className="w-full relative z-10"
-          style={{ height: '180px' }}
+          style={{ height: '150px' }}
           preserveAspectRatio="xMidYMid meet"
         >
           {/* Links */}
@@ -247,12 +247,12 @@ export default function Back2HomeTabs({ lang = 'es' }: { lang?: 'es' | 'en' }) {
   return (
     <div className="mt-8">
       {/* Tab Controls */}
-      <div className="flex gap-1 p-1 bg-dark-bg rounded-xl border border-dark-border mb-6 w-fit">
+      <div className="flex gap-1 p-1 bg-dark-bg rounded-xl border border-dark-border mb-6 w-full sm:w-fit">
         {tabs.map(tab => (
           <button
             key={tab.key}
             onClick={() => setActiveTab(tab.key)}
-            className={`relative flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-mono transition-all duration-300 ${
+            className={`relative flex items-center justify-center gap-1.5 sm:gap-2 flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-mono transition-all duration-300 ${
               activeTab === tab.key
                 ? 'text-dark-bg font-semibold'
                 : 'text-text-muted hover:text-text-primary'

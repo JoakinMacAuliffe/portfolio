@@ -9,14 +9,14 @@ const { lang = "es" } = Astro.props;
 const isEn = lang === "en";
 ---
 
-<section id="experiencia" class="relative py-20 overflow-hidden">
+<section id="experiencia" class="relative py-16 sm:py-20 overflow-hidden">
   <div class="absolute inset-0 bg-dark-surface/40 pointer-events-none"></div>
   <div
     class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-electric-blue/30 to-transparent"
   >
   </div>
 
-  <div class="relative z-10 max-w-4xl mx-auto px-6">
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
     <!-- Header -->
     <div class="mb-8">
       <span class="section-label">// {isEn ? "experience.log" : "experiencia.log"}</span>
@@ -25,7 +25,7 @@ const isEn = lang === "en";
         class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-4"
       >
         <div>
-          <h2 class="text-4xl sm:text-5xl font-bold text-text-primary">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary">
             {isEn ? "Experience" : "Experiencia"}
           </h2>
           <p class="text-text-muted text-sm mt-1">

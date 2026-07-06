@@ -7,15 +7,15 @@ const { lang = "es" } = Astro.props;
 const isEn = lang === "en";
 ---
 
-<section id="educacion" class="relative py-20 overflow-hidden">
+<section id="educacion" class="relative py-16 sm:py-20 overflow-hidden">
   <div class="absolute inset-0 grid-overlay opacity-20 pointer-events-none"></div>
   <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-green/30 to-transparent"></div>
 
-  <div class="max-w-4xl mx-auto px-6">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
     <!-- Header -->
     <div class="mb-10">
       <span class="section-label">// academic_status.log</span>
-      <h2 class="text-4xl sm:text-5xl font-bold text-text-primary mt-4 mb-2">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary mt-4 mb-2">
         {isEn ? "Education &" : "Educación y"} <span class="text-neon">{isEn ? "Achievements" : "Logros"}</span>
       </h2>
       <p class="text-text-muted text-sm">
@@ -23,7 +23,7 @@ const isEn = lang === "en";
       </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <!-- Main Education Node (UDP) -->
       <div class="lg:col-span-2 card-glow p-6 relative overflow-hidden group border-neon-green/30">
         <div class="absolute top-0 right-0 w-32 h-32 bg-neon-green/5 rounded-full -translate-y-8 translate-x-8 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>

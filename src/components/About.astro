@@ -7,15 +7,15 @@ const { lang = "es" } = Astro.props;
 const isEn = lang === "en";
 ---
 
-<section id="sobre-mi" class="relative py-20 overflow-hidden">
+<section id="sobre-mi" class="relative py-16 sm:py-20 overflow-hidden">
   <div class="absolute inset-0 bg-dark-surface/30 pointer-events-none"></div>
   <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-electric-blue/30 to-transparent"></div>
 
-  <div class="max-w-4xl mx-auto px-6">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
     <!-- Header -->
     <div class="mb-10">
       <span class="section-label">// {isEn ? "diagnostic_profile.sys" : "perfil_diagnostico.sys"}</span>
-      <h2 class="text-4xl sm:text-5xl font-bold text-text-primary mt-4 mb-2">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary mt-4 mb-2">
         {isEn ? "About" : "Sobre"} <span class="text-neon-blue">{isEn ? "Me" : "Mí"}</span>
       </h2>
       <p class="text-text-muted text-sm">

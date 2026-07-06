@@ -37,12 +37,13 @@ export default function NodeCanvas() {
     canvas.width = width;
     canvas.height = height;
 
-    // Create nodes
-    const nodeCount = Math.floor((width * height) / 18000);
+    // Create nodes — fewer on mobile for performance
+    const isMobile = width < 640;
+    const nodeCount = Math.floor((width * height) / (isMobile ? 30000 : 18000));
     const nodes: Node[] = [];
 
     const types: Node['type'][] = ['gateway', 'repeater', 'repeater', 'node', 'node', 'node'];
-    for (let i = 0; i < Math.max(nodeCount, 15); i++) {
+    for (let i = 0; i < Math.max(nodeCount, isMobile ? 8 : 15); i++) {
       nodes.push({
         x: Math.random() * width,
         y: Math.random() * height,
@@ -226,9 +227,22 @@ export default function NodeCanvas() {
     const handleMouseLeave = () => {
       mouseRef.current = { x: -1000, y: -1000 };
     };
+    // Touch support
+    const handleTouch = (e: TouchEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      const touch = e.touches[0];
+      if (touch) {
+        mouseRef.current = { x: touch.clientX - rect.left, y: touch.clientY - rect.top };
+      }
+    };
+    const handleTouchEnd = () => {
+      mouseRef.current = { x: -1000, y: -1000 };
+    };
 
     canvas.addEventListener('mousemove', handleMouse);
     canvas.addEventListener('mouseleave', handleMouseLeave);
+    canvas.addEventListener('touchmove', handleTouch, { passive: true });
+    canvas.addEventListener('touchend', handleTouchEnd);
 
     // Resize
     const handleResize = () => {
@@ -243,6 +257,8 @@ export default function NodeCanvas() {
       cancelAnimationFrame(animFrameRef.current);
       canvas.removeEventListener('mousemove', handleMouse);
       canvas.removeEventListener('mouseleave', handleMouseLeave);
+      canvas.removeEventListener('touchmove', handleTouch);
+      canvas.removeEventListener('touchend', handleTouchEnd);
       window.removeEventListener('resize', handleResize);
     };
   }, []);
