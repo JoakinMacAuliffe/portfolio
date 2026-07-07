@@ -48,8 +48,8 @@ const categoriesEs: SkillCategory[] = [
     title: 'Backend & Datos',
     subtitle: 'Servicios Web',
     icon: '🗄️',
-    color: '#ff6b00',
-    colorRgb: '255,107,0',
+    color: '#a855f7',
+    colorRgb: '168,85,247',
     skills: [
       { name: 'Node.js / Express', level: 80 },
       { name: 'PostgreSQL', level: 75 },
@@ -90,8 +90,8 @@ const categoriesEn: SkillCategory[] = [
     title: 'Backend & Data',
     subtitle: 'Web Services',
     icon: '🗄️',
-    color: '#ff6b00',
-    colorRgb: '255,107,0',
+    color: '#a855f7',
+    colorRgb: '168,85,247',
     skills: [
       { name: 'Node.js / Express', level: 80 },
       { name: 'PostgreSQL', level: 75 },
@@ -167,23 +167,26 @@ export default function SkillCards({ lang = 'es' }: { lang?: 'es' | 'en' }) {
             </div>
 
             {/* Skills list */}
-            <div className="space-y-3">
-              {cat.skills.map((skill) => (
-                <div key={skill.name}>
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs text-text-primary">{skill.name}</span>
-                  </div>
-                  <div className="h-1 bg-dark-bg rounded-full overflow-hidden">
-                    <motion.div
-                      className="h-full rounded-full"
-                      style={{ background: `linear-gradient(90deg, ${cat.color}, ${cat.color}80)` }}
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-                    />
-                  </div>
-                </div>
+            <div className="flex flex-wrap gap-2 mt-2">
+              {cat.skills.map((skill, index) => (
+                <motion.span
+                  key={skill.name}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  className="text-xs font-medium px-3 py-1.5 rounded-full border bg-dark-bg/50 text-text-muted hover:text-text-primary cursor-default"
+                  style={{
+                    borderColor: `rgba(${cat.colorRgb}, 0.15)`,
+                  }}
+                  whileHover={{ 
+                    borderColor: `rgba(${cat.colorRgb}, 0.5)`,
+                    backgroundColor: `rgba(${cat.colorRgb}, 0.05)`,
+                    y: -2
+                  }}
+                >
+                  {skill.name}
+                </motion.span>
               ))}
             </div>
           </div>
